@@ -11,7 +11,7 @@ GPP=g++
 AR=ar
 
 CFLAGS=-O3 -DNDEBUG 
-CXXFLAGS=-O3 -DNDEBUG -std=c++14 
+CXXFLAGS=-O3 -DNDEBUG -std=c++11 
 LDFLAGS=-s 
 
 WX_CXXFLAGS=`wx-config --cppflags --unicode=yes --version=3.1` -DWX3
