@@ -63,7 +63,7 @@ void mxDesktopTestGrid::OnLabelDblClick(wxGridEvent &event) {
 void mxDesktopTestGrid::OnLabelRightClick(wxGridEvent &event) {
 	if (!editable || event.GetCol()<PRECOLS) return;
 	
-	int res=wxMessageBox(wxString("¿Eliminar la columna \"")<<GetColLabelValue(event.GetCol())<<"\" de la tabla?", "Prueba de escritorio", wxYES_NO,main_window);
+	int res=wxMessageBox(wxString("delete column \"")<<GetColLabelValue(event.GetCol())<<"\"of the table?", "desktop test", wxYES_NO,main_window);
 	if (res==wxYES) {
 		variables.RemoveAt(event.GetCol()-PRECOLS);
 		SetCols();

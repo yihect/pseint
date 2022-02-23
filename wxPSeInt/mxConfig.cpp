@@ -103,30 +103,30 @@ bool TodoMayusculas(const std::string &desc) {
 }
 
 void mxConfig::OnSaveButton (wxCommandEvent & evt) {
-	wxFileDialog dlg (this, "Guardar perfil en archivo", config->last_dir, "", "Cualquier Archivo (*)|*", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+	wxFileDialog dlg (this, "Save profile to file", config->last_dir, "", "Any File (*)|*", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
 	if (dlg.ShowModal() == wxID_OK) {
 		config->last_dir=wxFileName(dlg.GetPath()).GetPath();
 		LangSettings l(LS_INIT);
 		while(true) {
-//			l.descripcion = _W2S( wxGetTextFromUser(_Z("Ingrese una descripción del perfil (\n"
-//									   		           "incluya materia, carrera, institución\n"
-//											           "y nombre del docente)."),_Z("Guardar Perfil"),"",this) );
+//			l.descripcion = _W2S( wxGetTextFromUser(_Z("Enter a profile description (\n"
+//									   		           "include subject, career, institution\n"
+//											           "and teacher's name)."),_Z("Save Profile"),"",this) );
 			
 			wxTextEntryDialog dialog(this, 
-									 _Z("Ingrese una descripción del perfil (incluya materia,\n"
-										"carrera, institución y nombre del docente)."),
-									 _Z("Guardar Perfil"),"", wxOK | wxCANCEL | wxTE_MULTILINE);
+									 _Z("Enter a description of the profile (include subject,\n"
+										"career, institution and name of the teacher)."),
+									 _Z("Save Profile"),"", wxOK | wxCANCEL | wxTE_MULTILINE);
 			
 			if (dialog.ShowModal() != wxID_OK) return;
 			wxString desc  = dialog.GetValue();
 			l.descripcion = _W2S( desc );;
 			if (l.descripcion.empty()) return;
 			if (l.descripcion.size()<10 or (not TodoMayusculas(l.descripcion))) break;
-			wxMessageBox(_Z("¡NO ME GRITE!"),_Z("Por favor"),wxOK|wxICON_ERROR);
+			wxMessageBox(_Z("DO NOT YELL AT ME!"),_Z("Please"),wxOK|wxICON_ERROR);
 		}
 		CopyToStruct(l);
 		l.Save(dlg.GetPath());
-		wxMessageBox(_ZZ("Perfil guardado en \"")+dlg.GetPath()+_Z("\""));
+		wxMessageBox(_Z("Profile saved in \"")+dlg.GetPath()+_Z("\""));
 	}
 }
 

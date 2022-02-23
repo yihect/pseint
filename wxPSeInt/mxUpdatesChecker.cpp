@@ -73,7 +73,7 @@ mxUpdatesChecker::mxUpdatesChecker(bool show) : wxDialog(main_window, wxID_ANY, 
 
 void mxUpdatesChecker::CheckNow() {
 	
-	text->SetLabel(_Z("Consultando web..."));
+	text->SetLabel(_Z("Checking website..."));
 
 	wxString command(config->updatem_command);
 	
@@ -92,7 +92,7 @@ void mxUpdatesChecker::CheckNow() {
 	_LOG("mxUpdatesChecker::CheckNow "<<command);
 	if (wxExecute(command,wxEXEC_ASYNC,process)<=0) {
 		if (shown) {
-			text->SetLabel(_Z("Error al conectarse al servidor."));
+			text->SetLabel(_Z("Error connecting to server."));
 		} else 
 			Destroy();
 	}
@@ -106,7 +106,7 @@ void mxUpdatesChecker::OnClose(wxCloseEvent &evt) {
 }
 
 void mxUpdatesChecker::OnProxyButton(wxCommandEvent &evt) {
-	wxString res = wxGetTextFromUser(_Z("Ingrese la direccion del proxy ( ej: 192.168.0.120:3128 ):"),_Z("Buscar Actualizaciones"), config->proxy, this);
+	wxString res = wxGetTextFromUser(_Z("Enter the proxy address ( ej: 192.168.0.120:3128 ):"),_Z("Search for updates"), config->proxy, this);
 	config->proxy=res;
 	CheckNow();
 }
@@ -117,9 +117,9 @@ void mxUpdatesChecker::OnCloseButton(wxCommandEvent &evt) {
 
 void mxUpdatesChecker::OnChangesButton(wxCommandEvent &evt) {
 #ifdef __WIN3__
-	bool do_exit = wxMessageBox(_Z("Si decide actualizar PSeInt ahora, deberá cerrar \n"
-								   "esta instancia antes de ejecutar el nuevo instalador.\n\n"
-								   "¿Desea cerrar PSeInt ahora?"),_Z("Actualización"),wxYES_NO|wxICON_QUESTION,this)==wxYES;
+	bool do_exit = wxMessageBox(_Z("If you decide to update PSeInt now, you will need to close \n"
+								   "this instance before running the new installer.\n\n"
+								   "Do you want to close PSeInt now?"),_Z("Update"),wxYES_NO|wxICON_QUESTION,this)==wxYES;
 #else
 	bool do_exit = false;
 #endif
@@ -153,7 +153,7 @@ void mxUpdatesChecker::OnProcessEnds(wxProcessEvent &evt) {
 	wxTextFile fil(temp_file);
 	if (!fil.Exists() || !fil.Open() || !fil.GetLineCount()) {
 		status_bar->SetStatus(STATUS_UPDATE_ERROR);
-		text->SetLabel(_Z("Error al conectarse al servidor."));
+		text->SetLabel(_Z("Error connecting to server."));
 		GetSizer()->Layout();
 		if (!shown) Destroy();
 		fil.Close();
@@ -162,13 +162,13 @@ void mxUpdatesChecker::OnProcessEnds(wxProcessEvent &evt) {
 	wxString res=fil.GetFirstLine();
 	if (res=="nonews") {
 		status_bar->SetStatus(STATUS_UPDATE_NONEWS);
-		text->SetLabel(_Z("No hay nuevas versiones disponibles."));
+		text->SetLabel(_Z("There are no new versions available."));
 		GetSizer()->Layout();
 		if (!shown) Destroy();
 	} else if (res=="update") {
 		status_bar->SetStatus(STATUS_UPDATE_FOUND);
 		wxString str;
-		str<<_Z("Hay una nueva version disponible en\nhttp://pseint.sourceforge.net (")<<fil.GetNextLine()<<_Z(")");
+		str<<_Z("There is a new version available at\nhttp://pseint.sourceforge.net (")<<fil.GetNextLine()<<_Z(")");
 		text->SetLabel(str);
 		proxy_button->Hide();
 		changes_button->Show();
@@ -176,7 +176,7 @@ void mxUpdatesChecker::OnProcessEnds(wxProcessEvent &evt) {
 		if (!shown) Show();
 		changes_button->SetFocus();
 	} else {
-		text->SetLabel(_Z("Error al conectarse al servidor."));
+		text->SetLabel(_Z("Error connecting to server."));
 	}
 	fil.Close();
 }

@@ -256,112 +256,112 @@ void mxMainWindow::CreateMenus() {
 	wxMenuBar *menu = new wxMenuBar;
 	
 	wxMenu *file = new wxMenu;
-	utils->AddItemToMenu(file,mxID_FILE_NEW, _Z("&Nuevo\tCtrl+N"),"","nuevo.png");
-	utils->AddItemToMenu(file,mxID_FILE_OPEN, _Z("&Abrir...\tCtrl+O"),"","abrir.png");
-	utils->AddItemToMenu(file,mxID_FILE_SAVE, _Z("&Guardar\tCtrl+S"),"","guardar.png");
-	utils->AddItemToMenu(file,mxID_FILE_SAVE_AS, _Z("Guardar &Como...\tCtrl+Shift+S"),"","guardar_como.png");
-	utils->AddItemToMenu(file,mxID_FILE_EDIT_FLOW, _Z("Editar Diagrama de Flujo...\tF7"),"","flujo.png");
-	utils->AddItemToMenu(file,mxID_FILE_PRINT, _Z("Imprimir...\tCtrl+P"),"","imprimir.png");
+	utils->AddItemToMenu(file,mxID_FILE_NEW, _Z("&New\tCtrl+N"),"","nuevo.png");
+	utils->AddItemToMenu(file,mxID_FILE_OPEN, _Z("&Open...\tCtrl+O"),"","abrir.png");
+	utils->AddItemToMenu(file,mxID_FILE_SAVE, _Z("&Save\tCtrl+S"),"","guardar.png");
+	utils->AddItemToMenu(file,mxID_FILE_SAVE_AS, _Z("Save as...\tCtrl+Shift+S"),"","guardar_como.png");
+	utils->AddItemToMenu(file,mxID_FILE_EDIT_FLOW, _Z("Edit Flowchart...\tF7"),"","flujo.png");
+	utils->AddItemToMenu(file,mxID_FILE_PRINT, _Z("Print...\tCtrl+P"),"","imprimir.png");
 	
 	wxMenu *export_menu=new wxMenu;
 	
-	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_PREVIEW, _Z("Vista previa..."),"","export_preview.png");
+	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_PREVIEW, _Z("Preview..."),"","export_preview.png");
 	export_menu->AppendSeparator();
 	for (int id = mxID_FILE_EXPORT_LANG_FIRST+1; id < int(mxID_FILE_EXPORT_LANG_LAST); id++)
-		utils->AddItemToMenu( export_menu,id, _ZZ("Convertir a ")+utils->GetExportLangName(id)+_T("..."),"",wxString("exp_")+utils->GetExportLangCode(id)+".png");
+		utils->AddItemToMenu( export_menu,id, _ZZ("Convert to ")+utils->GetExportLangName(id)+_T("..."),"",wxString("exp_")+utils->GetExportLangCode(id)+".png");
 	
 	export_menu->AppendSeparator();
-	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_HTML, _Z("Pseudocódigo coloreado (html)..."),"","html.png");
-	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_PNG, _Z("Diagrama de flujo (png, bmp o jpg)..."),"","flujo.png");
-	file->AppendSubMenu(export_menu,_Z("Exportar"),"");
+	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_HTML, _Z("colored pseudocode (html)..."),"","html.png");
+	utils->AddItemToMenu(export_menu,mxID_FILE_EXPORT_PNG, _Z("Flowchart (png, bmp o jpg)..."),"","flujo.png");
+	file->AppendSubMenu(export_menu,_Z("Export"),"");
 	
-	utils->AddItemToMenu(file,mxID_FILE_CLOSE, _Z("&Cerrar...\tCtrl+W"),"","cerrar.png");
+	utils->AddItemToMenu(file,mxID_FILE_CLOSE, _Z("&Close...\tCtrl+W"),"","cerrar.png");
 	file->AppendSeparator();
-	utils->AddItemToMenu(file,mxID_FILE_EXIT, _Z("&Salir\tAlt+F4"),"","salir.png");
-	menu->Append(file, _Z("&Archivo"));
+	utils->AddItemToMenu(file,mxID_FILE_EXIT, _Z("&Exit\tAlt+F4"),"","salir.png");
+	menu->Append(file, _Z("&File"));
 	file_menu=file;
 	RegenFileMenu("");
 	
 	wxMenu *edit = new wxMenu;
-	utils->AddItemToMenu(edit,mxID_EDIT_UNDO, _Z("&Deshacer\tCtrl+Z"),"","deshacer.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_REDO, _Z("&Rehacer\tCtrl+Shift+Z"),"","rehacer.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_UNDO, _Z("&Undo\tCtrl+Z"),"","deshacer.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_REDO, _Z("&Redo\tCtrl+Shift+Z"),"","rehacer.png");
 	edit->AppendSeparator();
-	utils->AddItemToMenu(edit,mxID_EDIT_CUT, _Z("C&ortar\tCtrl+X"),"","cortar.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_COPY, _Z("&Copiar\tCtrl+C"),"","copiar.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_PASTE, _Z("&Pegar\tCtrl+V"),"","pegar.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_TOGGLE_LINES_UP, _Z("Mover Hacia Arriba\tCtrl+T"),_Z("Mueve la o las lineas seleccionadas hacia arriba"),"arriba.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_TOGGLE_LINES_DOWN, _Z("Mover Hacia Abajo\tCtrl+Shift+T"),_Z("Mueve la o las lineas seleccionadas hacia abajo"),"abajo.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_CUT, _Z("C&ut\tCtrl+X"),"","cortar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_COPY, _Z("&Copy\tCtrl+C"),"","copiar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_PASTE, _Z("&Paste\tCtrl+V"),"","pegar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_TOGGLE_LINES_UP, _Z("Move Up\tCtrl+T"),_Z("Move the selected line(s) up"),"arriba.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_TOGGLE_LINES_DOWN, _Z("Move Down\tCtrl+Shift+T"),_Z("Move the selected line(s) down"),"abajo.png");
 	edit->AppendSeparator();
-	utils->AddItemToMenu(edit,mxID_EDIT_FIND, _Z("Buscar...\tCtrl+F"),"","buscar.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_FIND_PREV, _Z("Buscar Anterior\tShift+F3"),"","anterior.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_FIND_NEXT, _Z("Buscar Siguiente\tF3"),"","siguiente.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_REPLACE, _Z("&Reemplazar...\tCtrl+R"),"","reemplazar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_FIND, _Z("Search...\tCtrl+F"),"","buscar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_FIND_PREV, _Z("Search Previous\tShift+F3"),"","anterior.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_FIND_NEXT, _Z("Search Next\tF3"),"","siguiente.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_REPLACE, _Z("&Replace...\tCtrl+R"),"","reemplazar.png");
 	edit->AppendSeparator();
-	utils->AddItemToMenu(edit,mxID_EDIT_SELECT_ALL, _Z("Seleccionar Todo\tCtrl+A"),"","seleccionar.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_DUPLICATE, _Z("Duplicar Lineas\tCtrl+L"),"","duplicar.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_DELETE, _Z("Eliminar Lineas\tCtrl+Shift+L"),"","eliminar.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_COMMENT, _Z("Comentar Lineas\tCtrl+D"),"","comentar.png");
-	utils->AddItemToMenu(edit,mxID_EDIT_UNCOMMENT, _Z("Descomentar Lineas\tCtrl+Shift+D"),"","descomentar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_SELECT_ALL, _Z("Select All\tCtrl+A"),"","seleccionar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_DUPLICATE, _Z("Duplicate Lineas\tCtrl+L"),"","duplicar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_DELETE, _Z("Delete Lineas\tCtrl+Shift+L"),"","eliminar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_COMMENT, _Z("Comment Lineas\tCtrl+D"),"","comentar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_UNCOMMENT, _Z("Uncomment Lineas\tCtrl+Shift+D"),"","descomentar.png");
 	edit->AppendSeparator();
-	utils->AddItemToMenu(edit,mxID_EDIT_INDENT_SELECTION,_Z("Corregir Indentado\tCtrl+I"),"","indentar.png");
+	utils->AddItemToMenu(edit,mxID_EDIT_INDENT_SELECTION,_Z("Indentation\tCtrl+I"),"","indentar.png");
 //	utils->AddItemToMenu(edit,mxID_EDIT_BEAUTIFY_CODE,_Z("Emprolijar Algoritmo\tCtrl+Shift+I"),"","acomodar.png");
-	menu->Append(edit, _Z("&Editar"));
+	menu->Append(edit, _Z("&Edit"));
 	
 	wxMenu *cfg = new wxMenu;
 	
 	wxMenu *cfg_help = new wxMenu;
-	mi_autocomp = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_AUTOCOMP, _Z("Utilizar Autocompletado"),"",config->autocomp);
-	mi_autoclose = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_AUTOCLOSE, _Z("Cerrar Repetitivas/Condicionales"),"",config->autoclose);
-	mi_highlight_blocks = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_HIGHLIGHT_BLOCKS, _Z("Resaltar bloques lógicos"),"",config->highlight_blocks);
-	mi_calltip_helps = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_CALLTIP_HELPS, _Z("Utilizar Ayudas Emergentes"),"",config->calltip_helps);
-	mi_smart_indent = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_SMART_INDENT, _Z("Utilizar Indentado Inteligente"),"",config->smart_indent);
-	mi_rt_syntax = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_RT_SYNTAX, _Z("Comprobar Sintaxis Mientras Escribe"),"",config->rt_syntax);
-	mi_quickhelp = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_SHOW_QUICKHELP, _Z("Mostrar Ayuda Rapida"),"",config->auto_quickhelp);
-	cfg->AppendSubMenu(cfg_help,_Z("Asistencias"));
+	mi_autocomp = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_AUTOCOMP, _Z("Use Autocomplete"),"",config->autocomp);
+	mi_autoclose = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_AUTOCLOSE, _Z("Close Repetitive/Conditional"),"",config->autoclose);
+	mi_highlight_blocks = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_HIGHLIGHT_BLOCKS, _Z("Highlight logic blocks"),"",config->highlight_blocks);
+	mi_calltip_helps = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_CALLTIP_HELPS, _Z("Use Tooltips"),"",config->calltip_helps);
+	mi_smart_indent = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_SMART_INDENT, _Z("Use Smart Indent"),"",config->smart_indent);
+	mi_rt_syntax = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_RT_SYNTAX, _Z("Check Syntax While Typing"),"",config->rt_syntax);
+	mi_quickhelp = utils->AddCheckToMenu(cfg_help,mxID_CONFIG_SHOW_QUICKHELP, _Z("Show Quick Help"),"",config->auto_quickhelp);
+	cfg->AppendSubMenu(cfg_help,_Z("Assists"));
 	
 	wxMenu *cfg_pres = new wxMenu;
-	mi_animate_gui = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_ANIMATE_GUI, _Z("Animar paneles"),"",config->animate_gui);
-	mi_reorganize_for_debug = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_REORGANIZE_FOR_DEBUG, _Z("Organizar Ventanas al Iniciar Paso a Paso"),"",config->reorganize_for_debug);
-	mi_rt_annotate = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_RT_ANNOTATE, _Z("Intercalar los mensajes de error en el pseudocódigo"),"",config->rt_annotate);
-	mi_unicode_opers = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_UNICODE_OPERS, _Z("Utilizar símbolos unicode para representar operadores"),"",config->unicode_opers);
-	mi_use_colors = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_COLORS, _Z("Utilizar colores al ejecutar en la terminal"),"",config->use_colors);
-	mi_shape_colors = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_SHAPE_COLORS, _Z("Colorear bloques según tipo en el diagrama de flujo"),_Z(""),config->shape_colors);	
-	mi_psdraw_nocrop = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_PSDRAW_NO_CROP, _Z("Mostrar textos completos en el diagrama de flujo"),_Z(""),config->psdraw_nocrop);	
-	mi_use_dark_theme = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_THEME, _Z("Utilizar fondo negro en este editor"),"",config->use_dark_theme);
-	mi_use_dark_psdraw = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_PSDRAW, _Z("Utilizar fondo oscuro en el editor de diagramas"),"",config->use_dark_psdraw);
-	mi_use_dark_psterm = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_PSTERM, _Z("Utilizar fondo negro en la terminal"),"",config->use_dark_psterm);
-	mi_big_icons = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_BIG_ICONS, _Z("Íconos más grandes (p/pantallas HiDPI)"),"",config->big_icons);
-	utils->AddItemToMenu(cfg_pres,mxID_CONFIG_SELECT_FONTS, _Z("Seleccionar fuentes..."),"","fuentes.png");
-	cfg->AppendSubMenu(cfg_pres,_Z("Presentación"));
+	mi_animate_gui = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_ANIMATE_GUI, _Z("Animate panels"),"",config->animate_gui);
+	mi_reorganize_for_debug = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_REORGANIZE_FOR_DEBUG, _Z("Arrange Windows at Startup Step by Step"),"",config->reorganize_for_debug);
+	mi_rt_annotate = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_RT_ANNOTATE, _Z("Embed error messages in pseudocode"),"",config->rt_annotate);
+	mi_unicode_opers = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_UNICODE_OPERS, _Z("Use unicode symbols to represent operators"),"",config->unicode_opers);
+	mi_use_colors = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_COLORS, _Z("Use colors when running in terminal"),"",config->use_colors);
+	mi_shape_colors = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_SHAPE_COLORS, _Z("Coloring blocks by type in the flowchart"),_Z(""),config->shape_colors);	
+	mi_psdraw_nocrop = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_PSDRAW_NO_CROP, _Z("Show full texts in flowchart"),_Z(""),config->psdraw_nocrop);	
+	mi_use_dark_theme = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_THEME, _Z("Use black background in this editor"),"",config->use_dark_theme);
+	mi_use_dark_psdraw = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_PSDRAW, _Z("Use dark background in diagram editor"),"",config->use_dark_psdraw);
+	mi_use_dark_psterm = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_USE_DARK_PSTERM, _Z("Use black background in terminal"),"",config->use_dark_psterm);
+	mi_big_icons = utils->AddCheckToMenu(cfg_pres,mxID_CONFIG_BIG_ICONS, _Z("Larger icons (for HiDPI screens)"),"",config->big_icons);
+	utils->AddItemToMenu(cfg_pres,mxID_CONFIG_SELECT_FONTS, _Z("select fonts..."),"","fuentes.png");
+	cfg->AppendSubMenu(cfg_pres,_Z("Presentation"));
 	
-	utils->AddItemToMenu(cfg,mxID_CONFIG_LANGUAGE, _Z("Opciones del Lenguaje (perfiles)..."),"","lenguaje.png");
-	mi_nassi_shne = utils->AddCheckToMenu(cfg,mxID_CONFIG_NASSI_SHNEIDERMAN, _Z("Utilizar diagramas Nassi-Shneiderman"),"",cfg_lang[LS_USE_NASSI_SHNEIDERMAN]);
+	utils->AddItemToMenu(cfg,mxID_CONFIG_LANGUAGE, _Z("Language Options (profiles)..."),"","lenguaje.png");
+	mi_nassi_shne = utils->AddCheckToMenu(cfg,mxID_CONFIG_NASSI_SHNEIDERMAN, _Z("Use Nassi-Shneiderman diagrams"),"",cfg_lang[LS_USE_NASSI_SHNEIDERMAN]);
 #if !defined(__WIN32__) && !defined(__APPLE__)
 	cfg->AppendSeparator();
-	utils->AddItemToMenu(cfg,mxID_CONFIG_ICON_INSTALLER, _Z("Actualizar accesos directos..."),"","");
+	utils->AddItemToMenu(cfg,mxID_CONFIG_ICON_INSTALLER, _Z("Update shortcuts..."),"","");
 #endif	
-	menu->Append(cfg, _Z("&Configurar"));
+	menu->Append(cfg, _Z("&Config"));
 	
 	wxMenu *run = new wxMenu;
-	utils->AddItemToMenu(run,mxID_RUN_RUN, _Z("Ejecutar\tF9"),"","ejecutar.png");
-	utils->AddItemToMenu(run,mxID_RUN_STEP_STEP, _Z("Ejecutar Paso a Paso\tF5"),"","pasos.png");
-	utils->AddItemToMenu(run,mxID_RUN_SUBTITLES, _Z("Ejecución Explicada"),"","subtitles.png");
-	utils->AddItemToMenu(run,mxID_RUN_CHECK, _Z("Verificar Sintaxis\tShift+F9"),"","verificar.png");
-//	utils->AddItemToMenu(run,mxID_RUN_DRAW_FLOW, _Z("Dibujar Diagrama de Flujo"),"","flujo.png");
-	utils->AddItemToMenu(run,mxID_RUN_SET_INPUT, _Z("Predefinir Entrada...\tCtrl+F9"),"","input.png");
-	menu->Append(run, _Z("E&jecutar"));
+	utils->AddItemToMenu(run,mxID_RUN_RUN, _Z("Run\tF9"),"","ejecutar.png");
+	utils->AddItemToMenu(run,mxID_RUN_STEP_STEP, _Z("Run step by step\tF5"),"","pasos.png");
+	utils->AddItemToMenu(run,mxID_RUN_SUBTITLES, _Z("Execution Explained"),"","subtitles.png");
+	utils->AddItemToMenu(run,mxID_RUN_CHECK, _Z("Check Syntax\tShift+F9"),"","verificar.png");
+//	utils->AddItemToMenu(run,mxID_RUN_DRAW_FLOW, _Z("Draw Flowchart"),"","flujo.png");
+	utils->AddItemToMenu(run,mxID_RUN_SET_INPUT, _Z("Preset Input...\tCtrl+F9"),"","input.png");
+	menu->Append(run, _Z("E&xecute"));
 	
 	wxMenu *help = new wxMenu;
-	utils->AddItemToMenu(help,mxID_HELP_INDEX, _Z("Indice...\tF1"),"","ayuda.png");
-//	utils->AddItemToMenu(help,mxID_HELP_REFERENCE, _Z("Referencia...","","referencia.png");
-	utils->AddItemToMenu(help,mxID_HELP_QUICKHELP, _Z("Ayuda Rapida\tShift+F1"),"","referencia.png");
-	utils->AddItemToMenu(help,mxID_HELP_EXAMPLES, _Z("&Ejemplos..."),"","abrir.png");
+	utils->AddItemToMenu(help,mxID_HELP_INDEX, _Z("Index...\tF1"),"","ayuda.png");
+//	utils->AddItemToMenu(help,mxID_HELP_REFERENCE, _Z("Reference...","","referencia.png");
+	utils->AddItemToMenu(help,mxID_HELP_QUICKHELP, _Z("Quick Help\tShift+F1"),"","referencia.png");
+	utils->AddItemToMenu(help,mxID_HELP_EXAMPLES, _Z("&Examples..."),"","abrir.png");
 //	help->AppendSeparator();
-//	utils->AddItemToMenu(help,mxID_HELP_LOGGER, _Z("Reiniciar en modo \"Logging\"...\t"),_Z("Reinicia PSeInt de un modo especial que recaba información para depuración en un archivo de texto"),"");
+//	utils->AddItemToMenu(help,mxID_HELP_LOGGER, _Z("Reboot in mode \"Logging\"...\t"),_Z("Restarts PSeInt in a special way that collects debugging information into a text file"),"");
 	help->AppendSeparator();
-	utils->AddItemToMenu(help,mxID_HELP_UPDATES, _Z("&Buscar actualizaciones...\t"),_Z("Comprueba a traves de Internet si hay versiones mas recientes de PSeInt disponibles..."),"updates.png");
-	utils->AddItemToMenu(help,mxID_HELP_ABOUT, _Z("Acerca de..."),"","acerca_de.png");
-	menu->Append(help, _Z("A&yuda"));
+	utils->AddItemToMenu(help,mxID_HELP_UPDATES, _Z("&Search for updates...\t"),_Z("Check over the Internet if newer versions of PSeInt are available..."),"updates.png");
+	utils->AddItemToMenu(help,mxID_HELP_ABOUT, _Z("About..."),"","acerca_de.png");
+	menu->Append(help, _Z("Help"));
 	
 	SetMenuBar(menu);
 	
@@ -372,31 +372,31 @@ void mxMainWindow::CreateToolbars() {
 	toolbar = CreateToolBar(wxTB_FLAT | wxTB_NODIVIDER, wxID_ANY);
 	int isize = config->big_icons ? 32 : 24;
 	toolbar->SetToolBitmapSize(wxSize(isize,isize));
-	utils->AddTool(toolbar,mxID_FILE_NEW,_Z("Nuevo"),"nuevo.png","");
-	utils->AddTool(toolbar,mxID_FILE_OPEN,_Z("Abrir..."),"abrir.png","");
-	utils->AddTool(toolbar,mxID_FILE_SAVE,_Z("Guardar"),"guardar.png","");
-	utils->AddTool(toolbar,mxID_FILE_SAVE_AS,_Z("Guardar Como..."),"guardar_como.png","");
+	utils->AddTool(toolbar,mxID_FILE_NEW,_Z("New"),"nuevo.png","");
+	utils->AddTool(toolbar,mxID_FILE_OPEN,_Z("Open..."),"abrir.png","");
+	utils->AddTool(toolbar,mxID_FILE_SAVE,_Z("Save"),"guardar.png","");
+	utils->AddTool(toolbar,mxID_FILE_SAVE_AS,_Z("Save As..."),"guardar_como.png","");
 	toolbar->AddSeparator();
-	utils->AddTool(toolbar,mxID_EDIT_UNDO,_Z("Deshacer"),"deshacer.png","");
-	utils->AddTool(toolbar,mxID_EDIT_REDO,_Z("Rehacer"),"rehacer.png","");
-	utils->AddTool(toolbar,mxID_EDIT_CUT,_Z("Cortar"),"cortar.png","");
-	utils->AddTool(toolbar,mxID_EDIT_COPY,_Z("Copiar"),"copiar.png","");
-	utils->AddTool(toolbar,mxID_EDIT_PASTE,_Z("Pegar"),"pegar.png","");
-	utils->AddTool(toolbar,mxID_EDIT_INDENT_SELECTION,_Z("Corregir Indentado"),"indentar.png","");
-	utils->AddCheckTool(toolbar,mxID_CONFIG_RT_ANNOTATE,_Z("Mostrar mensajes de error"),"annotate.png","",config->rt_annotate);
+	utils->AddTool(toolbar,mxID_EDIT_UNDO,_Z("Undo"),"deshacer.png","");
+	utils->AddTool(toolbar,mxID_EDIT_REDO,_Z("Redo"),"rehacer.png","");
+	utils->AddTool(toolbar,mxID_EDIT_CUT,_Z("Cut"),"cortar.png","");
+	utils->AddTool(toolbar,mxID_EDIT_COPY,_Z("Copy"),"copiar.png","");
+	utils->AddTool(toolbar,mxID_EDIT_PASTE,_Z("Paste"),"pegar.png","");
+	utils->AddTool(toolbar,mxID_EDIT_INDENT_SELECTION,_Z("Indentation"),"indentar.png","");
+	utils->AddCheckTool(toolbar,mxID_CONFIG_RT_ANNOTATE,_Z("show error messages"),"annotate.png","",config->rt_annotate);
 	toolbar->EnableTool(mxID_CONFIG_RT_ANNOTATE,config->rt_syntax);
 	toolbar->AddSeparator();
-	utils->AddTool(toolbar,mxID_EDIT_FIND,_Z("Buscar"),"buscar.png","");
-	utils->AddTool(toolbar,mxID_EDIT_FIND_PREV,_Z("Buscar Anterior"),"anterior.png","");
-	utils->AddTool(toolbar,mxID_EDIT_FIND_NEXT,_Z("Buscar Siguiente"),"siguiente.png","");
-	utils->AddTool(toolbar,mxID_EDIT_REPLACE,_Z("Reemplazar"),"reemplazar.png","");
+	utils->AddTool(toolbar,mxID_EDIT_FIND,_Z("Find"),"buscar.png","");
+	utils->AddTool(toolbar,mxID_EDIT_FIND_PREV,_Z("Find Prev"),"anterior.png","");
+	utils->AddTool(toolbar,mxID_EDIT_FIND_NEXT,_Z("Find Next"),"siguiente.png","");
+	utils->AddTool(toolbar,mxID_EDIT_REPLACE,_Z("Replace"),"reemplazar.png","");
 	toolbar->AddSeparator();
-	utils->AddTool(toolbar,mxID_RUN_RUN,_Z("Ejecutar..."),"ejecutar.png","");
-	utils->AddTool(toolbar,mxID_RUN_STEP_STEP,_Z("Ejecutar paso a paso..."),"paso.png","");
-	utils->AddTool(toolbar,mxID_FILE_EDIT_FLOW,_Z("Dibujar Diagrama de Flujo..."),"flujo.png","");
+	utils->AddTool(toolbar,mxID_RUN_RUN,_Z("Run..."),"ejecutar.png","");
+	utils->AddTool(toolbar,mxID_RUN_STEP_STEP,_Z("Run step by step..."),"paso.png","");
+	utils->AddTool(toolbar,mxID_FILE_EDIT_FLOW,_Z("Edit Flowchart..."),"flujo.png","");
 	toolbar->AddSeparator();
-	utils->AddTool(toolbar,mxID_HELP_INDEX,_Z("Ayuda..."),"ayuda.png","");
-//	utils->AddTool(toolbar,mxID_FILE_EXIT,"Salir","salir.png","");
+	utils->AddTool(toolbar,mxID_HELP_INDEX,_Z("Help..."),"ayuda.png","");
+//	utils->AddTool(toolbar,mxID_FILE_EXIT,"Exit","salir.png","");
 	toolbar->Realize();
 	wxAuiPaneInfo info; info.Name("toolbar").Caption("Toolbar").ToolbarPane().Top().Layer(ptlb[0]).Row(ptlb[1]).Position(ptlb[2]).LeftDockable(false).RightDockable(false).Layer(ptlb[0]).Row(ptlb[1]).Position(ptlb[2]);
 	/*if (config->show_toolbar)*/ info.Show(); /*else info.Hide();*/
@@ -406,12 +406,12 @@ void mxMainWindow::CreateToolbars() {
 
 static void AddCommandButton(wxBoxSizer *sizer, wxPanel *panel, wxWindowID id, wxString image, wxString text) {
 	static wxString tooltip = utils->FixTooltip(
-		_Z("Con estos botones puede insertar instrucciones o estructuras de control "
-		   "en el pseudocódigo. Al seleccionar uno se introduce en el algoritmo dicha "
-		   "instrucción o estructura, se marcan con recuadros los argumentos que debe "
-		   "completar, y se presenta en la parte inferior de la ventana una ayuda "
-		   "rápida acerca de la misma. Puede mantener presionada la tecla shift para "
-		   "insertar versiones alternativas o variantes de estos comandos y estructuras."));
+		_Z("With these buttons you can insert instructions or control structures "
+		   "in the pseudocode. Selecting one introduces that algorithm into the algorithm. "
+		   "statement or structure, the arguments that must be "
+		   "complete, and help is displayed at the bottom of the window. "
+		   "Quick about it. You can hold down the shift key to "
+		   "insert alternative versions or variants of these commands and structures."));
 	wxButton *but = utils->AddImgButton(sizer,panel,id,DIR_PLUS_FILE_2("inst",config->big_icons?"52":"35",image),text);
 	but->SetToolTip(tooltip); but->SetMinSize(wxSize(but->GetMinSize().GetWidth(),10));
 }
@@ -419,19 +419,19 @@ static void AddCommandButton(wxBoxSizer *sizer, wxPanel *panel, wxWindowID id, w
 void mxMainWindow::CreateCommandsPanel() {
 	wxPanel *panel = commands = new wxPanel(this);
 	wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
-	AddCommandButton(sizer,panel,mxID_CMD_ESCRIBIR,"escribir.png",_Z("Escribir"));
-	AddCommandButton(sizer,panel,mxID_CMD_LEER,    "leer.png",    _Z("Leer"));
-	AddCommandButton(sizer,panel,mxID_CMD_ASIGNAR, "asignar.png", _Z("Asignar"));
-	AddCommandButton(sizer,panel,mxID_CMD_SI,      "si.png",      _Z("Si-Entonces"));
+	AddCommandButton(sizer,panel,mxID_CMD_ESCRIBIR,"escribir.png",_Z("Write"));
+	AddCommandButton(sizer,panel,mxID_CMD_LEER,    "leer.png",    _Z("Read"));
+	AddCommandButton(sizer,panel,mxID_CMD_ASIGNAR, "asignar.png", _Z("Assign"));
+	AddCommandButton(sizer,panel,mxID_CMD_SI,      "si.png",      _Z("If-Then"));
 	AddCommandButton(sizer,panel,mxID_CMD_SEGUN,   "segun.png",   _Z("Según"));
-	AddCommandButton(sizer,panel,mxID_CMD_MIENTRAS,"mientras.png",_Z("Mientras"));
-	AddCommandButton(sizer,panel,mxID_CMD_REPETIR, "repetir.png", _Z("Repetir"));
-	AddCommandButton(sizer,panel,mxID_CMD_PARA,    "para.png",    _Z("Para"));
+	AddCommandButton(sizer,panel,mxID_CMD_MIENTRAS,"mientras.png",_Z("While"));
+	AddCommandButton(sizer,panel,mxID_CMD_REPETIR, "repetir.png", _Z("Repeat"));
+	AddCommandButton(sizer,panel,mxID_CMD_PARA,    "para.png",    _Z("For"));
 	button_subproc=NULL; CreateButtonSubProceso(panel,sizer);
 	panel->SetSizerAndFit(sizer);
 	
 	wxAuiPaneInfo info_helper,info_win;
-	info_win.Name("commands").Caption(_Z("Comandos")).Right().Layer(pcmd[0]).Row(pcmd[1]).Position(pcmd[2]);
+	info_win.Name("commands").Caption(_Z("commands")).Right().Layer(pcmd[0]).Row(pcmd[1]).Position(pcmd[2]);
 	info_helper.Name("helper_commands").CaptionVisible(false).PaneBorder(false).Resizable(false).Right().Layer(hcmd[0]).Row(hcmd[1]).Position(hcmd[2]);
 	if (config->show_commands) {
 		info_win.Show(); info_helper.Hide();
@@ -439,7 +439,7 @@ void mxMainWindow::CreateCommandsPanel() {
 		info_win.Hide(); info_helper.Show();
 	}
 	aui_manager.AddPane(commands, info_win);
-	aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_COMMANDS,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","commands.png"),"Comandos y Estructuras"), info_helper);
+	aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_COMMANDS,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","commands.png"),"Commands and Structures"), info_helper);
 }
 
 void mxMainWindow::CreateVarsPanel() {
@@ -452,7 +452,7 @@ void mxMainWindow::CreateVarsPanel() {
 	} else {
 		info_win.Hide(); info_helper.Show();
 	}
-	aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_VARS,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","vars.png"),"Lista de Variables"), info_helper);
+	aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_VARS,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","vars.png"),"Variable List"), info_helper);
 	aui_manager.AddPane(vars_window, info_win);
 }
 
@@ -465,12 +465,12 @@ void mxMainWindow::CreateOpersPanel() {
 	}
 	opers_window = new mxOpersWindow(this);
 	wxAuiPaneInfo info_win;
-	info_win.Name("opers_panel").Caption(_Z("Operadores y Funciones")).Left().Layer(popr[0]).Row(popr[1]).Position(popr[2]);
+	info_win.Name("opers_panel").Caption(_Z("Operators and Functions")).Left().Layer(popr[0]).Row(popr[1]).Position(popr[2]);
 	if (!built) {
 		wxAuiPaneInfo info_helper;
 		info_helper.Name("helper_opers").CaptionVisible(false).PaneBorder(false).Resizable(false).Left().Layer(hopr[0]).Row(hopr[1]).Position(hopr[2]);
 		if (config->show_opers) info_helper.Hide(); else info_helper.Show();
-		aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_OPERS,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","opers.png"),"Operadores y Funciones"), info_helper);
+		aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_OPERS,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","opers.png"),"Operators and Functions"), info_helper);
 	}
 	if (config->show_opers) info_win.Show(); else info_win.Hide();
 	aui_manager.AddPane(opers_window, info_win);
@@ -479,12 +479,12 @@ void mxMainWindow::CreateOpersPanel() {
 
 void mxMainWindow::CreateDebugControlsPanel() {
 	backtrace=new mxBacktrace(this); // hay que crearlo antes que el debug
-	aui_manager.AddPane(backtrace, wxAuiPaneInfo().Name(_Z("¿Dónde estoy?")).Bottom().CaptionVisible(false).Hide().Layer(pbak[0]).Row(pbak[1]).Position(pbak[2]));	
+	aui_manager.AddPane(backtrace, wxAuiPaneInfo().Name(_Z("Where am I?")).Bottom().CaptionVisible(false).Hide().Layer(pbak[0]).Row(pbak[1]).Position(pbak[2]));	
 	subtitles=new mxSubtitles(this); // hay que crearlo antes que el debug
 	aui_manager.AddPane(subtitles, wxAuiPaneInfo().Name("subtitles").Bottom().CaptionVisible(false).Hide().Layer(psub[0]).Row(psub[1]).Position(psub[2]));	
 	debug_panel = new mxDebugWindow(this);
 	wxAuiPaneInfo info_helper,info_win;
-	info_win.Name("debug_panel").Caption(_Z("Paso a paso")).Right().Layer(pdbg[0]).Row(pdbg[1]).Position(pdbg[2]);
+	info_win.Name("debug_panel").Caption(_Z("step by step")).Right().Layer(pdbg[0]).Row(pdbg[1]).Position(pdbg[2]);
 	info_helper.Name("helper_debug").CaptionVisible(false).PaneBorder(false).Resizable(false).Right().Layer(hdbg[0]).Row(hdbg[1]).Position(hdbg[2]);
 	
 	if (config->show_debug_panel) {
@@ -493,7 +493,7 @@ void mxMainWindow::CreateDebugControlsPanel() {
 		info_win.Hide(); info_helper.Show();
 	}
 	aui_manager.AddPane(debug_panel, info_win);
-	aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_DEBUG,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","debug.png"),_Z("Ejecución Paso a Paso")), info_helper);
+	aui_manager.AddPane(new mxPanelHelper(this,mxID_HELPER_DEBUG,DIR_PLUS_FILE_3(config->images_path,"panels",config->big_icons?"24":"16","debug.png"),_Z("Step by Step Execution")), info_helper);
 }
 
 void mxMainWindow::CreateNotebook() {
@@ -529,11 +529,11 @@ mxSource *mxMainWindow::NewProgram(const wxString &title) {
 mxSource *mxMainWindow::OpenTestPackage(const wxString &path) {
 	if (test_panel) CloseTestPackage();
 	test_panel = new mxTestPanel(this);
-	aui_manager.AddPane(test_panel, wxAuiPaneInfo().Name("ejercicio").Caption(_Z("Ejercicio")).Bottom().CaptionVisible(false).Hide().Layer(pevl[0]).Row(pevl[1]).Position(pevl[2]));	
+	aui_manager.AddPane(test_panel, wxAuiPaneInfo().Name("Exercise").Caption(_Z("Exercise")).Bottom().CaptionVisible(false).Hide().Layer(pevl[0]).Row(pevl[1]).Position(pevl[2]));	
 	wxString key = "";
 	if (path.Lower().EndsWith(".psx")) {
 		aui_manager.Update(); wxYield();
-		key = wxGetTextFromUser(_Z("Ingrese la clave:"),_Z("PSeInt"),"",this);
+		key = wxGetTextFromUser(_Z("Enter the key:"),_Z("PSeInt"),"",this);
 	}
 	if (!test_panel->Load(path,key)) {
 		CloseTestPackage();
@@ -575,7 +575,7 @@ void mxMainWindow::OnFileExportLang(wxCommandEvent &evt) {
 void mxMainWindow::OnFileExportHtml(wxCommandEvent &evt) {
 	IF_THERE_IS_SOURCE {
 		mxSource *source = CURRENT_SOURCE;
-		wxFileDialog dlg (this, _Z("Exportar"),source->GetPathForExport(),source->GetNameForExport()+_Z(".html"), _Z("Documentos HTML|*.html;*.htm;*.HTML;*.HTM"), wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+		wxFileDialog dlg (this, _Z("Export"),source->GetPathForExport(),source->GetNameForExport()+_Z(".html"), _Z("Documentos HTML|*.html;*.htm;*.HTML;*.HTM"), wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
 		if (dlg.ShowModal() == wxID_OK) {
 			config->last_dir=config->last_dir=wxFileName(dlg.GetPath()).GetPath();
 			HtmlExporter ce;
@@ -584,7 +584,7 @@ void mxMainWindow::OnFileExportHtml(wxCommandEvent &evt) {
 			if (ce.Export(source,title,dlg.GetPath()))
 				wxLaunchDefaultBrowser(dlg.GetPath());
 			else
-				wxMessageBox(_Z("No se pudo guardar el archivo"),_Z("Error"),wxID_OK|wxICON_ERROR,this);
+				wxMessageBox(_Z("The file could not be saved"),_Z("Error"),wxID_OK|wxICON_ERROR,this);
 		}
 	}
 }
@@ -593,7 +593,7 @@ void mxMainWindow::OnFileClose(wxCommandEvent &evt) {
 	IF_THERE_IS_SOURCE {
 		mxSource *source=CURRENT_SOURCE;
 		if (source->GetModify()) {
-			int res=wxMessageBox(_Z("Hay cambios sin guardar. ¿Desea guardarlos antes de cerrar?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
+			int res=wxMessageBox(_Z("There are unsaved changes. Do you want to save them before closing?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
 			if (res==wxCANCEL)
 				return;
 			else if (res==wxYES) {
@@ -611,8 +611,8 @@ void mxMainWindow::OnFileClose(wxCommandEvent &evt) {
 
 
 void mxMainWindow::OnFileOpen(wxCommandEvent &evt) {
-	wxFileDialog dlg (this, _Z("Abrir Archivo"), config->last_dir, _Z(" "), "Any file (*)|*", wxFD_OPEN | wxFD_FILE_MUST_EXIST | wxFD_MULTIPLE);
-	dlg.SetWildcard(_Z("Todos los archivos|*|Algoritmos en pseudocódigo|*.psc;*.PSC|Ejercicios empaquetados|*.psz;*.PSZ;*.psx;*.PSX|Archivos de texto|*.txt;*.TXT"));
+	wxFileDialog dlg (this, _Z("Open File"), config->last_dir, _Z(" "), "Any file (*)|*", wxFD_OPEN | wxFD_FILE_MUST_EXIST | wxFD_MULTIPLE);
+	dlg.SetWildcard(_Z("All the files|*|Algorithms in pseudocode|*.psc;*.PSC|Ejercicios empaquetados|*.psz;*.PSZ;*.psx;*.PSX|Archivos de texto|*.txt;*.TXT"));
 	if (dlg.ShowModal() == wxID_OK) {
 		wxArrayString paths;
 		dlg.GetPaths(paths);
@@ -678,7 +678,7 @@ mxSource *mxMainWindow::OpenProgram(wxString path, bool is_example) {
 #endif
 	
 	if (!file_exists) {
-		wxMessageBox(wxString(_Z("No se pudo abrir el archivo "))<<path,_Z("Error"),wxOK|wxICON_ERROR);
+		wxMessageBox(wxString(_Z("The file could not be opened "))<<path,_Z("Error"),wxOK|wxICON_ERROR);
 		return NULL;
 	}
 		
@@ -712,15 +712,15 @@ void mxMainWindow::OnFileSaveAs(wxCommandEvent &evt) {
 		wxFileDialog dlg (this, _Z("Guardar"),
 						  source->sin_titulo?config->last_dir:wxFileName(source->filename).GetPath(),
 						  source->GetFileName(true), "Any file (*)|*", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
-		dlg.SetWildcard(_Z("Todos los archivos|*|Algoritmos en pseudocódigo|*.psc;*.PSC|Archivos de texto|*.txt;*.TXT"));
+		dlg.SetWildcard(_Z("All the files|*|Algoritmos en pseudocódigo|*.psc;*.PSC|Archivos de texto|*.txt;*.TXT"));
 		if (dlg.ShowModal() == wxID_OK) {
 			wxFileName file = dlg.GetPath();
 #ifndef __WIN32__
 			if (file.GetFullPath().IsEmpty()) { // problems due to ansi-wx on utf8-linux
-				wxMessageBox("El nombre del archivo o de alguna carpeta en su ruta\n"
-							 "contiene acentos u otro caracteres especiales. En este\n"
-							 "sistema ZinjaI no puede guardar correctamente los\n"
-							 "cambios del archivo a menos que modifique su nombre o ruta.",
+				wxMessageBox("The name of the file or of some folder in its path\n"
+							 "contains accents or other special characters. In this\n"
+							 "ZinjaI system cannot correctly save the\n"
+							 "file changes unless you change its name or path.",
 							 "Error",wxOK|wxICON_ERROR,this);
 				OnFileSaveAs(evt);
 				return;
@@ -820,7 +820,7 @@ void mxMainWindow::OnClose(wxCloseEvent &evt) {
 			mxSource *source = (mxSource*)(notebook->GetPage(i));
 			if (source->GetModify()) {
 				notebook->SetSelection(i);
-				int res=wxMessageBox(_Z("Hay cambios sin guardar. ¿Desea guardarlos antes de salir?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
+				int res=wxMessageBox(_Z("There are unsaved changes. Do you want to save them before leaving?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
 				if (res&wxYES) {
 					if (!source->sin_titulo)
 						source->SaveFile(source->filename);
@@ -903,7 +903,7 @@ void mxMainWindow::OnHelpQuickHelp(wxCommandEvent &evt) {
 		}
 	}
 	// si no hay clave, preguntar
-	if (ask) key = wxGetTextFromUser(_Z("Palabra a buscar:"), _Z("Ayuda Rápida"), _T(""), this);
+	if (ask) key = wxGetTextFromUser(_Z("word to search:"), _Z("Ayuda Rápida"), _T(""), this);
 	if (key=="K-BOOM!!!") { // para probar el error-recovery
 		int *p = NULL;
 		cout << *p;
@@ -924,7 +924,7 @@ void mxMainWindow::CreateQuickHelp() {
 	m_quick_help.m_ctrl = new mxHtmlWindow(this, wxID_ANY, wxDefaultPosition, wxSize(400,300));
 	m_quick_help.m_ctrl->SetPage(wxString(_Z("PSeInt "))<<VERSION);
 	m_quick_help.m_aui = &aui_manager;
-	aui_manager.AddPane(m_quick_help.m_ctrl, wxAuiPaneInfo().Name("quick_html").Caption(_Z("Ayuda Rápida")).Bottom().CloseButton(true).MaximizeButton(true).Hide().Layer(phlp[0]).Row(phlp[1]).Position(phlp[2]));	
+	aui_manager.AddPane(m_quick_help.m_ctrl, wxAuiPaneInfo().Name("quick_html").Caption(_Z("Quick Help")).Bottom().CloseButton(true).MaximizeButton(true).Hide().Layer(phlp[0]).Row(phlp[1]).Position(phlp[2]));	
 }
 
 void mxMainWindow::SelectError(wxString text) {
@@ -1415,7 +1415,7 @@ void mxMainWindow::OnConfigBigIcons(wxCommandEvent &evt) {
 		mi_big_icons->Check(true);
 		config->big_icons=true;
 	}
-	wxMessageBox(_Z("Deberá reiniciar PSeInt para que se aplique este cambio"),_Z("Íconos más grandes"),wxOK|wxICON_INFORMATION);
+	wxMessageBox(_Z("You will need to restart PSeInt for this change to take effect"),_Z("larger icons"),wxOK|wxICON_INFORMATION);
 }
 
 void mxMainWindow::OnConfigUseDarkTheme(wxCommandEvent &evt) {
@@ -1466,7 +1466,7 @@ void mxMainWindow::OnPaneClose(wxAuiManagerEvent& event) {
 void mxMainWindow::OnNotebookPageClose(wxAuiNotebookEvent& event)  {
 	mxSource *source = (mxSource*)notebook->GetPage(event.GetSelection());
 	if (source->GetModify()) {
-		int res=wxMessageBox(_Z("Hay cambios sin guardar. ¿Desea guardarlos antes de cerrar el archivo?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
+		int res=wxMessageBox(_Z("There are unsaved changes. Do you want to save them before closing the file?"), source->filename, wxYES_NO|wxCANCEL|wxICON_QUESTION,this);
 		if (res==wxCANCEL) {
 			event.Veto();
 			return;
@@ -1500,7 +1500,7 @@ void mxMainWindow::OnScrollDegugSpeed(wxScrollEvent &evt) {
 
 void mxMainWindow::CreateDesktopTestPanel() {
 	desktop_test_panel = new mxDesktopTestPanel(this);
-	aui_manager.AddPane(desktop_test_panel, wxAuiPaneInfo().Name("desktop_test_panel").Caption(_Z("Prueba de Escritorio")).CloseButton(true).MaximizeButton(true).Bottom().Hide().Layer(pdkt[0]).Row(pdkt[1]).Position(pdkt[2]));
+	aui_manager.AddPane(desktop_test_panel, wxAuiPaneInfo().Name("desktop_test_panel").Caption(_Z("Desktop Test")).CloseButton(true).MaximizeButton(true).Bottom().Hide().Layer(pdkt[0]).Row(pdkt[1]).Position(pdkt[2]));
 }
 
 //const wxArrayString &mxMainWindow::GetDesktopVars() {
@@ -1546,7 +1546,7 @@ bool mxMainWindow::SelectFirstError() {
 //	ResetInLogMode();
 //}
 void mxMainWindow::ResetInLogMode() {
-	wxFileDialog dlg (this, _Z("Generar Log"),"","pseint-log.txt","*", wxFD_SAVE);
+	wxFileDialog dlg (this, _Z("Generate Log"),"","pseint-log.txt","*", wxFD_SAVE);
 	if (dlg.ShowModal() != wxID_OK) return;
 	wxString dir = config->pseint_dir;
 #if defined(__WIN32__)
@@ -1642,7 +1642,7 @@ void mxMainWindow::OnFilePrint (wxCommandEvent &event) {
 		mxPrintOut printout(CURRENT_SOURCE,CURRENT_SOURCE->GetPageText());
 		if (!printer.Print(this, &printout, true)) {
 			if (wxPrinter::GetLastError() == wxPRINTER_ERROR)
-				wxMessageBox(_Z("Ha ocurrido un error al intentar imprimir"),_Z("Error"),wxOK|wxICON_ERROR);
+				wxMessageBox(_Z("An error occurred while trying to print"),_Z("Error"),wxOK|wxICON_ERROR);
 		}
 	}
 }
@@ -1733,7 +1733,7 @@ void mxMainWindow::OnConfigNassiScheiderman (wxCommandEvent & evt) {
 void mxMainWindow::CreateButtonSubProceso(wxPanel *panel, wxSizer *sizer){
 	if (button_subproc) { sizer->Detach(button_subproc); button_subproc->Destroy(); }
 	if (cfg_lang[LS_ENABLE_USER_FUNCTIONS]) {
-		wxString but_label = cfg_lang[LS_PREFER_FUNCION]?_Z("Función"):(cfg_lang[LS_PREFER_ALGORITMO]?_Z("SubAlgoritmo"):_Z("SubProceso"));
+		wxString but_label = cfg_lang[LS_PREFER_FUNCION]?_Z("Function"):(cfg_lang[LS_PREFER_ALGORITMO]?_Z("SubAlgorithm"):_Z("SubProceso"));
 		button_subproc = utils->AddImgButton(sizer,panel,mxID_CMD_SUBPROCESO,DIR_PLUS_FILE_2("inst",config->big_icons?"52":"35","funcion.png"),but_label);
 	} else 
 		button_subproc = NULL;
@@ -1887,7 +1887,7 @@ void mxMainWindow::ParseResults(mxSource *source) {
 		fil.Open();
 		for ( wxString str = fil.GetFirstLine(); !fil.Eof(); str = fil.GetNextLine() ) {
 			if (str[0]=='*') {
-				if (str.Contains(_Z("Finalizada"))) {
+				if (str.Contains(_Z("Finished"))) {
 					happy_ending=true;
 					if (!_avoid_results_tree) RTreeAdd(source->GetPageText()+_Z(": Ejecución Finalizada"),0);
 					source->SetStatus(STATUS_RUNNED_OK);
@@ -1900,7 +1900,7 @@ void mxMainWindow::ParseResults(mxSource *source) {
 //		wxRemoveFile(temp_filename);
 		if (!happy_ending) {
 			source->SetStatus(STATUS_RUNNED_INT);
-			RTreeAdd(source->GetPageText()+_Z(": Ejecución Interrumpida"),0);
+			RTreeAdd(source->GetPageText()+_Z(": Interrupted Execution"),0);
 //			Raise(); // comentado porque con la nueva terminal, al presionar f9 se pasa el foco a la terminal, yu si hay error vuelve al editor sin dejar ver que paso
 //		} else {
 //			source->SetFocus(); // en linux, con wx2+gtk3 hace activa a la ventana, es muy molesto, no llegamos a ver el resultado en la terminal
@@ -2253,24 +2253,24 @@ void mxMainWindow::QuickHelpPanelPolicy::ShowRTResult (bool errors, bool force) 
 	if (m_mode==QHM_RT_RESULT && errors==(m_last_code!=0)) return;
 	m_mode = QHM_RT_RESULT; m_last_code = errors?1:0;
 	if (errors) 
-		m_ctrl->SetPage(_Z("La sintaxis no es correcta. Haga click sobre los errores señalados en el pseudocódigo para más detalles."));
+		m_ctrl->SetPage(_Z("Click on the errors pointed out in the pseudocode for more details."));
 	else
-		m_ctrl->SetPage(_Z("La sintaxis es correcta. Puede presionar F9 para ejecutar el algoritmo."));
+		m_ctrl->SetPage(_Z("The syntax is correct. You can press F9 to run the algorithm."));
 	EnsureVisible();
 }
 
 void mxMainWindow::QuickHelpPanelPolicy::ShowHelpPage (wxString help_file) {
-	m_aui->GetPane(m_ctrl).Caption(_Z("Ayuda Rápida"));
+	m_aui->GetPane(m_ctrl).Caption(_Z("Quick Help"));
 	m_mode = QHM_HELP; m_ctrl->LoadPage(help_file); EnsureVisible();
 }
 
 void mxMainWindow::QuickHelpPanelPolicy::ShowHelpText (wxString html_text) {
-	m_aui->GetPane(m_ctrl).Caption(_Z("Ayuda Rápida"));
+	m_aui->GetPane(m_ctrl).Caption(_Z("Quick Help"));
 	m_mode = QHM_HELP; m_ctrl->SetPage(html_text); EnsureVisible();
 }
 
 void mxMainWindow::QuickHelpPanelPolicy::ShowTestHelp (wxString html_text) {
-	m_aui->GetPane(m_ctrl).Caption(_Z("Enunciado del Ejercicio"));
+	m_aui->GetPane(m_ctrl).Caption(_Z("Excercise statement"));
 	m_mode = QHM_TEST; m_ctrl->SetPage(html_text); EnsureVisible();
 }
 
@@ -2279,7 +2279,7 @@ void mxMainWindow::QuickHelpPanelPolicy::HideTestHelp () {
 }
 
 void mxMainWindow::QuickHelpPanelPolicy::ShowOutput (wxString html_text) {
-	m_aui->GetPane(m_ctrl).Caption(_Z("Ayuda Acerda del Error"));
+	m_aui->GetPane(m_ctrl).Caption(_Z("Help About the Error"));
 	m_mode = QHM_OUTPUT; m_ctrl->SetPage(html_text); EnsureVisible();
 }
 

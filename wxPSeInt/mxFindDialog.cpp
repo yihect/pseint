@@ -23,7 +23,7 @@ BEGIN_EVENT_TABLE(mxFindDialog, wxDialog)
 END_EVENT_TABLE()
 
 mxFindDialog::mxFindDialog(wxWindow* parent)
-	: wxDialog(parent, wxID_ANY, _Z("Buscar"), wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB | wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER) 
+	: wxDialog(parent, wxID_ANY, _Z("Search for"), wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB | wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER) 
 {
 	wxBoxSizer *mySizer= new wxBoxSizer(wxHORIZONTAL);
 	wxBoxSizer *optSizer = new wxBoxSizer(wxVERTICAL);
@@ -46,9 +46,9 @@ mxFindDialog::mxFindDialog(wxWindow* parent)
 	replace_button->SetBitmap(*bitmaps->buttons.replace);
 	replace_all_button = new wxButton (this, mxID_FIND_REPLACE_ALL, _Z("Reemplazar Todo"));
 	replace_all_button->SetBitmap(*bitmaps->buttons.replace);
-	next_button = new wxButton (this, mxID_FIND_FIND_NEXT, _Z("Buscar Siguiente"));
+	next_button = new wxButton (this, mxID_FIND_FIND_NEXT, _Z("Find Next"));
 	next_button->SetBitmap(*bitmaps->buttons.find);
-	wxButton *prev_button = new wxButton (this, mxID_FIND_FIND_PREV, _Z("Buscar Anterior"));
+	wxButton *prev_button = new wxButton (this, mxID_FIND_FIND_PREV, _Z("Find Before"));
 	prev_button->SetBitmap(*bitmaps->buttons.find);
 	wxButton *cancel_button = new wxButton (this, wxID_CANCEL, _Z("Cancelar"));
 	cancel_button->SetBitmap(*bitmaps->buttons.cancel);
@@ -172,7 +172,7 @@ bool mxFindDialog::FindPrev() {
 			source->SetSelection(source->GetTargetStart(),source->GetTargetEnd());
 			return true;
 		} else { 
-			wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontró."), _Z("Buscar"));
+			wxMessageBox(wxString(_Z("Chain \""))<<last_search<<_Z("\"It was not found."), _Z("search for"));
 			return false;
 		}
 	}
@@ -241,7 +241,7 @@ void mxFindDialog::OnFindNextButton(wxCommandEvent &event) {
 			combo_find->SetFocus();
 		}
 	} else {
-		wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontró."), _Z("Buscar"));
+		wxMessageBox(wxString(_Z("Chain \""))<<last_search<<_Z("\" It was not found."), _Z("Buscar"));
 		Raise();
 	}
 	
@@ -255,7 +255,7 @@ void mxFindDialog::OnFindPrevButton(wxCommandEvent &event) {
 	}
 	
 	if (!main_window->notebook->GetPageCount()) {
-		wxMessageBox(_Z("No hay ningún archivo abierto actualmente."),_Z("Error"));
+		wxMessageBox(_Z("There are no files currently open."),_Z("Error"));
 		return;
 	}
 
@@ -278,7 +278,7 @@ void mxFindDialog::OnFindPrevButton(wxCommandEvent &event) {
 			combo_find->SetFocus();
 		}
 	} else
-		wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontró."), _Z("Buscar"));
+		wxMessageBox(wxString(_Z("Chain \""))<<last_search<<_Z("\" It was not found."), _Z("search for"));
 }
 
 void mxFindDialog::OnReplaceButton(wxCommandEvent &event) {
@@ -289,7 +289,7 @@ void mxFindDialog::OnReplaceButton(wxCommandEvent &event) {
 	}
 
 	if (!main_window->notebook->GetPageCount()) {
-		wxMessageBox(_Z("No hay ningún archivo abierto actualmente."),_Z("Error"));
+		wxMessageBox(_Z("There are no files currently open."),_Z("Error"));
 		return;
 	}
 	
@@ -331,7 +331,7 @@ void mxFindDialog::OnReplaceAllButton(wxCommandEvent &event) {
 	}
 
 	if (!main_window->notebook->GetPageCount()) {
-		wxMessageBox(_Z("No hay ningún archivo abierto actualmente."),_Z("Error"));
+		wxMessageBox(_Z("There are no files currently open."),_Z("Error"));
 		return;
 	}
 	
@@ -386,11 +386,11 @@ void mxFindDialog::OnReplaceAllButton(wxCommandEvent &event) {
 	}
 
 	if (c==0)
-		wxMessageBox(_Z("No se realizó ningún reemplazo."), _Z("Reemplazar"));
+		wxMessageBox(_Z("No replacement was made."), _Z("Replace"));
 	else if (c==1)
-		wxMessageBox(_Z("Se realizó un remplazo."), _Z("Reemplazar"));
+		wxMessageBox(_Z("A replacement is made."), _Z("Replace"));
 	else
-		wxMessageBox(wxString(_Z("Se realizaron "))<<c<<_Z(" reemplazos."), _Z("Reemplazar"));
+		wxMessageBox(wxString(_Z("were made"))<<c<<_Z(" replacements."), _Z("Replace"));
 
 }
 

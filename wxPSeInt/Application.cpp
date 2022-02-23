@@ -83,7 +83,7 @@ bool mxApplication::OnInit() {
 	}
 	if (!flag && !wxFileName::FileExists(_T("pseint.dir")) && !wxFileName::FileExists(_T("PSeInt.dir"))) {
 		_LOG("Error: pseint.dir not found");
-		wxMessageBox(_Z("PSeInt no pudo determinar el directorio donde fue instalado. Compruebe que el directorio de trabajo actual sea el correcto."),_T("Error"));
+		wxMessageBox(_Z("PSeInt could not determine the directory where it was installed. Check that the current working directory is correct."),_T("Error"));
 	}
 	
 	srand(time(0));
@@ -134,11 +134,11 @@ bool mxApplication::OnInit() {
 	if (!config->version) {
 		_LOG("mxApplication::OnInit NO_PROFILE");
 //		wxMessageBox(_Z(
-//			"Bienvenido a PSeInt. Antes de comenzar debes seleccionar un perfil "
-//			"para ajustar el pseudolenguaje a tus necesidades. Si tu universidad "
-//			"o institución no aparece en la lista, notifica a tu profesor para "
-//			"que envíe sus datos a través del sitio web. "
-//			),_Z("Bienvenido a PSeInt"),wxOK,main_window);
+//			"Welcome to PSeInt. Before starting you must select a profile "
+//			"to adjust the pseudo-language to your needs. If your university "
+//			"or institution does not appear on the list, notify your teacher to "
+//			"that submits your data through the website. "
+//			),_Z("Welcome to PSeInt"),wxOK,main_window);
 		mxWelcome(main_window).ShowModal();
 		main_window->NewProgram();
 		main_window->ProfileChanged();
@@ -148,18 +148,18 @@ bool mxApplication::OnInit() {
 			mxUpdatesChecker::BackgroundCheck();
 #else
 		if (config->version && config->version<20190311) {
-			wxMessageBox("A partir de esta versión la búsqueda\n"
-						 "de actualizaciones automática ya no está\n"
-						 "disponible en sistemas Windows debido a\n"
-						 "varios antivirus confunden al módulo que\n"
-						 "se encarga de esta tarea con un virus y\n"
-						 "generan falsas alarmas.\n"
+			wxMessageBox("From this version the search\n"
+						 "automatic update is no longer\n"
+						 "available on Windows systems due to\n"
+						 "various antiviruses confuse the module that\n"
+						 "handles this task with a virus and\n"
+						 "they generate false alarms.\n"
 						 "\n"
-						 "Por favor, para mantener PSeInt actualizado\n"
-						 "y poder disfrutar de las futuras mejoras y\n"
-						 "correcciones, visite regularmente\n"
+						 "Please, to keep PSeInt updated\n"
+						 "and be able to enjoy future improvements and\n"
+						 "fixes, visit regularly\n"
 						 "http://pseint.sourceforge.net",
-						 "Actualizaciones Desactivadas",wxID_OK|wxICON_EXCLAMATION);
+						 "Updates Disabled",wxID_OK|wxICON_EXCLAMATION);
 		}
 #endif
 	}
@@ -199,10 +199,10 @@ void mxApplication::RecoverFromError ( ) {
 		src->SetModified(true);
 		src->sin_titulo = true;
 	}
-	wxMessageBox(_Z("PSeInt no se cerró correctamente durante su última ejecución.\n"
-					"Algunos algoritmos en los que trabajaba fueron guardados,\n"
-					"automaticamente y ahora han sido recuperados."),
-				_Z("PSeInt - Recuperación ante errores"),wxOK|wxICON_WARNING);
+	wxMessageBox(_Z("PSeInt did not close correctly during its last execution.\n"
+					"Some algorithms I was working on were saved,\n"
+					"automatically and have now been recovered."),
+				_Z("PSeInt - Error recovery"),wxOK|wxICON_WARNING);
 	
 	wxRemoveFile(er_get_recovery_fname());
 }
